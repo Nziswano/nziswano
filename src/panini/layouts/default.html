@@ -1,17 +1,23 @@
+{{!-- This is the base layout for your project, and will be used on every page. --}}
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
+    <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>{{title}} | Digital Agency</title>
-    <!-- <link rel="stylesheet" href="{{root}}assets/app.css"> -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <title>{{page}} | Prototype Template</title>
+    <link rel="stylesheet" href="{{root}}assets/app.css">
   </head>
   <body>
+    <div class="wrapper">
+      {{>header}}
+      <main>
+      {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
       {{>body}}
-    <!-- <script src="{{root}}assets/vendor.js"></script>
+      </main>
+      {{>footer}}
+    </div>
+    <script src="{{root}}assets/vendor.js"></script>
     <script src="{{root}}assets/app.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js?onload=initCaptcha&render=explicit' async defer></script> -->
   </body>
 </html>

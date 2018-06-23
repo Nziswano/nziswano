@@ -41,6 +41,7 @@ const serverConfig = {
   compress: true,
   open: false,
   port: 9000,
+  watchContentBase: true,
   historyApiFallback: {
     verbose: true,
     disableDotRule: true
@@ -53,6 +54,7 @@ const webpackConfig = {
   },
   output: {
     path: outputDir,
+    publicPath: '/assets/',
     filename: '[name].js'
   },
   resolve: {

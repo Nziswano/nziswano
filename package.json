@@ -1,8 +1,8 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "description": "* Going to integrate it with my Wordpress site.",
-  "main": ".eslintrc.js",
+  "name": "Nziswano",
+  "version": "0.0.1",
+  "description": "Nziswano Public Site",
+  "main": "main.js",
   "scripts": {
     "dev": "npm-run-all -n -p gulp:watch webpack:dev",
     "build": "npm-run-all -s gulp:build webpack:build",
@@ -32,6 +32,7 @@
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
     "gulp": "^4.0.0",
     "mini-css-extract-plugin": "^0.4.0",
@@ -45,11 +46,14 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "style-sherpa": "^1.0.2",
+    "url-loader": "^1.0.1",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.4-rc1"
   }
 }
