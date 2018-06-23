@@ -1,34 +1,29 @@
 const path = require('path')
 const webpack = require('webpack')
-const BabiliPlugin = require('babili-webpack-plugin')
-const CleanWebPackPlugin = require('clean-webpack-plugin')
-const combineLoaders = require('webpack-combine-loaders')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const vendorPackages = require('./package.json')
-const { CheckerPlugin } = require('awesome-typescript-loader')
+
+const devMode = process.env.NODE_ENV !== 'production'
+const NoVendorPackagesInclude = ['font-awesome', 'foundation-sites', '@fortawesome/fontawesome-free-webfots']
 
 const outputDir = path.join(__dirname, 'dist')
 
 const pluginConfig = [
-  new HtmlWebpackPlugin(
-    {
-      title: 'Welcome',
-      template: './src/index.ejs'
-    }
-  ),
-  new webpack.DefinePlugin({
-    __STATE__: JSON.stringify(process.env.NODE_ENV)
-  }),
-  new CheckerPlugin()
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+    chunkFilename: '[id].css'
+  })
 ]
 
-const moduleConfigBase = [
-  {
-    test: /\.html$/,
-    loader: 'html-loader'
+const moduleConfigBase = [{
+    test: /\.(sa|sc|c)ss$/,
+    exclude: /node_modules/,
+    use: [
+      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      'css-loader',
+      'postcss-loader',
+      'sass-loader'
+    ]
   },
   {
     test: /\.js$/,
@@ -36,72 +31,8 @@ const moduleConfigBase = [
     loader: 'babel-loader'
   },
   {
-    test: /\.tsx?$/,
-    exclude: /(node_modules)/,
-    use: [
-      { loader: 'babel-loader' },
-      { loader: 'awesome-typescript-loader' }
-    ]
-  },
-  {
     test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|svg)$/,
     loader: 'url-loader?limit=100000'
-  }
-]
-
-const moduleConfigDev = [
-  {
-    test: /\.scss$/,
-    exclude: /(node_modules)/,
-    use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' },
-      { loader: 'postcss-loader' },
-      { loader: 'sass-loader' }
-    ]
-  },
-  {
-    test: /\.css$/,
-    exclude: /(node_modules)/,
-    use: [
-      { loader: 'style-loader' },
-      { loader: 'css-loader' },
-      { loader: 'postcss-loader' }
-    ]
-  }
-]
-
-const moduleConfigProd = [
-  {
-    test: /\.scss$/,
-    use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: combineLoaders([
-        {
-          loader: 'css-loader'
-        },
-        {
-          loader: 'postcss-loader'
-        },
-        {
-          loader: 'sass-loader'
-        }
-      ])
-    })
-  },
-  {
-    test: /\.css$/,
-    use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: combineLoaders([
-        {
-          loader: 'css-loader'
-        },
-        {
-          loader: 'postcss-loader'
-        }
-      ])
-    })
   }
 ]
 
@@ -118,8 +49,7 @@ const serverConfig = {
 
 const webpackConfig = {
   entry: {
-    app: './src/app/main.ts',
-    vendor: Object.keys(vendorPackages.dependencies).filter(name => (name !== 'font-awesome' && name !== 'foundation-sites' && name !== '@fortawesome/fontawesome-free-webfonts'))
+    app: './src/main.js'
   },
   output: {
     path: outputDir,
@@ -135,35 +65,29 @@ const webpackConfig = {
   devServer: serverConfig
 }
 
+// Check to see if there are any packages in the vendor package
+const vendorPackagesAvailable = Object.keys(vendorPackages.dependencies).filter(name => !NoVendorPackagesInclude.includes(name))
+
+if (vendorPackagesAvailable.length > 0) {
+  webpackConfig.entry.vendor = vendorPackagesAvailable
+}
+
+webpackConfig.module = {
+  rules: moduleConfigBase
+}
+
 if (process.env.NODE_ENV === 'production') {
   webpackConfig.plugins = (webpackConfig.plugins || []).concat([
-    new BabiliPlugin({}),
-    new CleanWebPackPlugin([outputDir]),
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      allChunks: true
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      async: true,
-      minChunks: Infinity
-    }),
-    new StylelintPlugin(
-      {syntax: 'scss', emitErrors: false, lintDirtyModulesOnly: true}
-    ),
-    new UglifyJsPlugin({
-      test: /\.js($|\?)/i
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
   ])
-  webpackConfig.module = { rules: moduleConfigBase.concat(moduleConfigProd) }
   webpackConfig.devtool = '#source-map'
+  webpackConfig.mode = 'production'
 } else {
   /* Development */
-  webpackConfig.module = { rules: moduleConfigBase.concat(moduleConfigDev) }
   webpackConfig.devtool = 'cheap-module-source-map'
+  webpackConfig.mode = 'development'
 }
 
 module.exports = webpackConfig
