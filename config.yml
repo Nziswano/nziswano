@@ -2,3 +2,6 @@
 PATHS:
   # Path to dist folder
   dist: "dist"
+  sass:
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
