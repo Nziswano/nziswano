@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const vendorPackages = require('./package.json')
 
 const devMode = process.env.NODE_ENV !== 'production'
-const NoVendorPackagesInclude = ['font-awesome', 'foundation-sites', '@fortawesome/fontawesome-free-webfots']
+const NoVendorPackagesInclude = ['font-awesome', 'foundation-sites', '@fortawesome/fontawesome-free-webfots', 'motion-ui']
 
 const outputDir = path.join(__dirname, 'dist')
 
@@ -30,6 +30,11 @@ const moduleConfigBase = [{
     test: /\.js$/,
     exclude: /(node_modules)/,
     loader: 'babel-loader'
+  },
+  {
+    test: /\.tsx?$/,
+    exclude: /(node_modules)/,
+    loader: 'awesome-typescript-loader'
   },
   {
     test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|svg)$/,
@@ -63,6 +68,9 @@ const webpackConfig = {
     alias: {
       '@': path.resolve('src')
     }
+  },
+  externals: {
+    jquery: 'jQuery'
   },
   plugins: pluginConfig,
   devServer: serverConfig

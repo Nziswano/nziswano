@@ -8,11 +8,18 @@ const browserSync = require('browser-sync');
 const gulpwebpack = require('webpack-stream');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
+// sass
+const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 
 // webpackConfig.watch = true;
 
 // const webpackDevMiddleWare = require('webpack-dev-middleware');
 // const webpackHotMiddleWare = require('webpack-hot-middleware');
+
 const yaml = require('js-yaml');
 const fs = require('fs');
 
@@ -24,7 +31,6 @@ const {
 } = loadConfig();
 
 const server = browserSync.create();
-// const bundler = webpack(require('./webpack.config.js'));
 
 
 function loadConfig() {
@@ -34,27 +40,12 @@ function loadConfig() {
 
 // Build the index.html files for the final result
 gulp.task('build',
-  gulp.series(clean, gulp.parallel(pages, images), styleGuide));
+  gulp.series(clean, gulp.parallel(buildSass, pages, images), styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series(clean, gulp.parallel(mywebpack, pages, images), serve, watch)
+  gulp.series(clean, gulp.parallel(buildSass, mywebpack, pages, images), serve, watch)
 )
-
-gulp.task('clean',
-  gulp.series(clean));
-
-gulp.task('watch',
-  gulp.series(watch));
-
-gulp.task('images',
-  gulp.series(images));
-
-gulp.task('webpack',
-  gulp.series(mywebpack));
-
-gulp.task('serve', serve);
-gulp.task('reload', reload);
 
 
 // add webpack stream
@@ -64,7 +55,17 @@ function mywebpack() {
     .pipe(gulp.dest('dist/assets/'));
 }
 
-// browser-synce
+function buildSass() {
+  return gulp.src(['src/assets/styles/styles.scss'])
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: PATHS.sass
+    }).on('error', sass.logError))
+    .pipe(postcss([autoprefixer()]))
+    .pipe(gulp.dest(PATHS.dist + '/assets'))
+}
+
+// browser-sync
 function serve(done) {
   server.init({
     server: {
@@ -121,10 +122,10 @@ function resetPages(done) {
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
-  gulp.watch('src/panini/pages/**/*.html').on('all', gulp.series(resetPages, pages, reload))
-  gulp.watch('src/panini/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, reload))
-  gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload))
-  gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload))
-  gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload))
-  gulp.watch('src/**/*.scss').on('all', gulp.series(mywebpack, reload))
+  gulp.watch('src/panini/pages/**/*.html').on('all', gulp.series(resetPages, pages, reload));
+  gulp.watch('src/panini/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, reload));
+  gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
+  gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
+  gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
+  gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(buildSass, reload));
 }
