@@ -19,7 +19,8 @@ const moduleConfigBase = [{
     test: /\.(sa|sc|c)ss$/,
     exclude: /node_modules/,
     use: [
-      devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      // devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+      MiniCssExtractPlugin.loader,
       'css-loader',
       'postcss-loader',
       'sass-loader'
@@ -72,6 +73,8 @@ const vendorPackagesAvailable = Object.keys(vendorPackages.dependencies).filter(
 
 if (vendorPackagesAvailable.length > 0) {
   webpackConfig.entry.vendor = vendorPackagesAvailable
+} else {
+  webpackConfig.entry.vendor = './src/dummy.js' // avoid having a missing vendor.js error.
 }
 
 webpackConfig.module = {
