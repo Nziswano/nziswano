@@ -17,8 +17,10 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // webpackConfig.watch = true;
 
-// const webpackDevMiddleWare = require('webpack-dev-middleware');
-// const webpackHotMiddleWare = require('webpack-hot-middleware');
+const webpackDevMiddleWare = require('webpack-dev-middleware');
+const webpackHotMiddleWare = require('webpack-hot-middleware');
+
+const webpackCompiler = webpack(webpackConfig);
 
 const yaml = require('js-yaml');
 const fs = require('fs');
@@ -44,7 +46,7 @@ gulp.task('build',
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series(clean, gulp.parallel(buildSass, mywebpack, pages, images), serve, watch)
+  gulp.series(clean, gulp.parallel(buildSass, mywebpack, pages, images), styleGuide, serve, watch)
 )
 
 
@@ -62,6 +64,7 @@ function buildSass() {
       includePaths: PATHS.sass
     }).on('error', sass.logError))
     .pipe(postcss([autoprefixer()]))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(PATHS.dist + '/assets'))
 }
 
@@ -70,7 +73,11 @@ function serve(done) {
   server.init({
     server: {
       baseDir: "./dist"
-    }
+    },
+    middleware: [
+      webpackDevMiddleWare(webpackCompiler),
+      webpackHotMiddleWare(webpackCompiler)
+    ]
   });
   done();
 }
@@ -103,13 +110,13 @@ function clean(done) {
 
 // Copy page templates into finished HTML files
 function pages() {
-  return gulp.src('src/panini/pages/**/*.{html,hbs,handlebars}')
+  return gulp.src('src/html/pages/**/*.{html,hbs,handlebars}')
     .pipe(panini({
-      root: 'src/panini/pages/',
-      layouts: 'src/panini/layouts/',
-      partials: 'src/panini/partials/',
-      data: 'src/panini/data/',
-      helpers: 'src/panini/helpers/'
+      root: 'src/html/pages/',
+      layouts: 'src/html/layouts/',
+      partials: 'src/html/partials/',
+      data: 'src/html/data/',
+      helpers: 'src/html/helpers/'
     }))
     .pipe(gulp.dest(PATHS.dist))
 }
@@ -122,8 +129,8 @@ function resetPages(done) {
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
-  gulp.watch('src/panini/pages/**/*.html').on('all', gulp.series(resetPages, pages, reload));
-  gulp.watch('src/panini/{layouts,partials}/**/*.html').on('all', gulp.series(resetPages, pages, reload));
+  // gulp.watch('src/html/pages/**/*.html').on('all', gulp.series(resetPages, pages, reload));
+  gulp.watch('src/html/{layouts,partials,pages,helpers}/**/*.html').on('all', gulp.series(resetPages, pages, reload));
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
   gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
