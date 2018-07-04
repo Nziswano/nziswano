@@ -131,6 +131,7 @@ function resetPages(done) {
 function watch() {
   // gulp.watch('src/html/pages/**/*.html').on('all', gulp.series(resetPages, pages, reload));
   gulp.watch('src/html/{layouts,partials,pages,helpers}/**/*.html').on('all', gulp.series(resetPages, pages, reload));
+  gulp.watch('src/html/data/*.yml').on('all', gulp.series(resetPages, pages, reload));
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
   gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));

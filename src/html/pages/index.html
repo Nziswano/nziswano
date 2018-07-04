@@ -1,12 +1,102 @@
-<video autoplay muted loop>
-  <source src="https://res.cloudinary.com/paseo/video/upload/v1514677139/johan-martin/videos/Coffee_Above.mp4"
-    type="video/mp4" />
-</video>
-<section class='main-section'>
-  <h1>Nziswano digital agency</h1>
-</section>
-<footer>
+<header>
+  <h1>{{site.title}}</h1>
+  <h2>{{site.subtitle}}</h2>
+  <blockquote>
+    {{site.quote}}
+    <cite>{{site.quote_author}}</cite>
+  </blockquote>
   <ul>
-    <li>Copyright &copy; 2018</li>
+    {{#each site.services}}
+      <li>
+        {{title}} {{summary}}
+      </li>
+    {{/each}}
   </ul>
+</header>
+<main>
+  <section>
+    <h2>Services</h2>
+    {{#each site.services}}
+      <div>
+        <h3>{{title}}</h3>
+        <p>{{summary}}</p>
+        <ul>
+          {{#each items}}
+            <li>{{title}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </section>
+  <section>
+    <h2>About</h2>
+    <ul>
+      {{#each site.experience}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  </section>
+  <section>
+    <h2>Projects</h2>
+    {{#each site.projects}}
+      <div>
+        <h3>{{title}}</h3>
+        <p>{{summary}}</p>
+        <span>
+          <a href= {{site}} target="_blank">{{title}}</a>
+        </span>
+        <h4>Technology</h4>
+        <ul>
+          {{#each technology}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </section>
+  <section>
+    <h2>Resources</h2>
+    <ul>
+      {{#each site.resources}}
+        <li>
+          <a href="{{site}}" target="_blank">{{title}}</a>
+        </li>
+    </ul>
+    {{/each}}
+    </div>
+  </section>
+</main>
+<footer>
+  <section>
+    <h2>Contact Us</h2>
+    <dl>
+      {{#each site.about}}
+        <dt>
+          {{title}}
+        </dt>
+        <dd>{{value}}</dd>
+      {{/each}}
+    </dl>
+  </section>
+  <section>
+    <h2>Send Message</h2>
+    <form>
+      <fieldset>
+        <label for="name">
+          Name
+          <input type="text">
+        </label>
+        <label for="email">
+          Email
+          <input type="email">
+        </label>
+        <label for="Message">
+          Message
+          <textarea name="message" id="" cols="30" rows="10"></textarea>
+        </label>
+        <button class="button" type="submit">Send</button>
+        <button class="button" type="reset">Reset</button>
+      </fieldset>
+    </form>
+  </section>
 </footer>

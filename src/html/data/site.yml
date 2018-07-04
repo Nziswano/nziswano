@@ -1,0 +1,149 @@
+---
+title: Nziswano digital agency
+subtitle: cooperation
+quote: "You can’t use up creativity. The more you use, the more you have."
+quote_author: Maya Angelou
+services:
+ -
+  title: Micro Sites
+  summary: What is a micro site?
+  items:  
+    - 
+      title: Contests
+    - 
+      title: Surveys
+    - 
+      title: Product promotion
+    - 
+      title: Lead generation
+    - 
+      title: Events
+      more:
+      - Event promotion
+      - 3rd party ticketing and event management API integration
+      - Progressive web application
+      - Audience participation and feedback
+    - 
+      title: Ecommerce
+      more:
+      - snipcart - ecommerce
+      - Product dedicated sites
+      - Integrate with third-party ecommerce providers
+  technology:
+    - Cloud based
+    - 3rd party integration
+ - 
+  title: Headless Wordpress Development
+  summary: headless wordpress development
+  items:
+    - 
+      title: Liberate your content
+    - 
+      title: Scale your site
+    - 
+      title: Multiple sites with shared content
+    - 
+      title: Leverage WordPress.com
+    - 
+      title: Maximize your front-end developers
+  technology:
+    - wordpress.com
+    - cloud services
+ - 
+  title: Analytics
+  summary: site analytics
+  items:
+    - 
+      title: Custom tags
+    - 
+      title: Configuration and implementation
+    - 
+      title: Dashboards
+    - 
+      title: Training
+    - 
+      title: Custom integration with internal tools
+  technology:
+    - Google Webmaster tools
+    - Google Analytics
+experience: 
+  - Development and marketing experience
+  - Web development
+projects:
+  -
+    title: KinderCare
+    summary: KinderCare website
+    site: https://www.kindercare.co.za
+    technology:
+      - Angular 6 web application
+      - Amazon Cognito for Identity Management
+      - Amazon API Gateway
+      - Postgresql database
+      - Flask based API
+  -
+    title: lookfindme
+    summary: lookfindme website
+    site: https://www.lookfindme.com
+    technology:
+      - VueJs
+      - Amazon Cognito for Identity Management
+      - Amazon Postgresql RDS
+      - Amazon Elastic Search
+      - Amazon SES
+  -
+    title: Johan Martin Personal Site
+    summary: Personal site
+    site: https://www.johan-martin.com
+    technology:
+      - ReactJS
+      - Wordpress
+      - Amazon API Gateway
+  -
+    title: Paseo Baptist Church
+    summary: Paseo Baptist Church
+    site: https://www.paseo.org.za
+    technology:
+      - Foundation 6
+      - VueJS components
+      - Google Captcha integration
+      - Wordpress backend
+      - Google API Gateway
+      - Google SES
+      - Google dynamoDB
+  -
+    title: Paseo Daycare and Preschool
+    summary: Paseo daycare and preschool
+    site: https://center.paseo.org.za
+    technology:
+      - Foundation 6
+      - VueJS
+      - Google Captcha
+      - Headless WordPress
+      - Google API Gateway
+      - Google SES
+resources:
+  - 
+    title: Structured Data
+    site: https://developers.google.com/search/docs/guides/intro-structured-data?visit_id=1-636653566408759923-1263733777&hl=en&rd=1
+  -
+    title: Google Search Configuration
+    site: https://developers.google.com/search/
+  -
+    title: Free Google Business Site
+    site: https://www.google.com/business/how-it-works/website/
+  -
+    title: Integrate My Business Tools
+    site: https://developers.google.com/my-business/?hl=en
+  -
+    title: OpenGraph tools
+    site: https://megatags.co
+about:
+  -
+    title: Phone
+    value: +27 81 443 8234
+  -
+    title: Email
+    value: info@nziswano.co.za
+  -
+    title: twitter
+    value: "@catenarellc"
