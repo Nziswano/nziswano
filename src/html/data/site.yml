@@ -7,6 +7,9 @@ services:
  -
   title: Micro Sites
   summary: What is a micro site?
+  benefits:
+    -
+      title: benefit
   items:  
     - 
       title: Contests
@@ -35,6 +38,9 @@ services:
  - 
   title: Headless Wordpress
   summary: headless wordpress
+  benefits:
+    -
+      title: benefit
   items:
     - 
       title: Liberate your content
@@ -63,6 +69,9 @@ services:
       title: Training
     - 
       title: Custom integration with internal tools
+  benefits:
+    -
+      title: benefit
   technology:
     - Google Webmaster tools
     - Google Analytics
