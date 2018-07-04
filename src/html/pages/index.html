@@ -1,102 +1,133 @@
-<header>
-  <h1>{{site.title}}</h1>
-  <h2>{{site.subtitle}}</h2>
-  <blockquote>
-    {{site.quote}}
-    <cite>{{site.quote_author}}</cite>
-  </blockquote>
-  <ul>
-    {{#each site.services}}
-      <li>
-        {{title}} {{summary}}
-      </li>
-    {{/each}}
-  </ul>
-</header>
-<main>
-  <section>
-    <h2>Services</h2>
-    {{#each site.services}}
-      <div>
-        <h3>{{title}}</h3>
-        <p>{{summary}}</p>
-        <ul>
-          {{#each items}}
-            <li>{{title}}</li>
-          {{/each}}
-        </ul>
-      </div>
-    {{/each}}
-  </section>
-  <section>
-    <h2>About</h2>
-    <ul>
-      {{#each site.experience}}
-        <li>{{this}}</li>
-      {{/each}}
-    </ul>
-  </section>
-  <section>
-    <h2>Projects</h2>
-    {{#each site.projects}}
-      <div>
-        <h3>{{title}}</h3>
-        <p>{{summary}}</p>
-        <span>
-          <a href= {{site}} target="_blank">{{title}}</a>
-        </span>
-        <h4>Technology</h4>
-        <ul>
-          {{#each technology}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ul>
-      </div>
-    {{/each}}
-  </section>
-  <section>
-    <h2>Resources</h2>
-    <ul>
-      {{#each site.resources}}
-        <li>
-          <a href="{{site}}" target="_blank">{{title}}</a>
-        </li>
-    </ul>
-    {{/each}}
+{{>video}}
+<div class="grid-container">
+  <header>
+    <h1>{{site.title}}</h1>
+    <h2>{{site.subtitle}}</h2>
+    <div class="grid-x">
+      <blockquote class="cell auto large-offset-2 medium-offset-1">
+        {{site.quote}}
+        <cite>{{site.quote_author}}</cite>
+      </blockquote>
     </div>
-  </section>
-</main>
-<footer>
-  <section>
-    <h2>Contact Us</h2>
-    <dl>
-      {{#each site.about}}
-        <dt>
-          {{title}}
-        </dt>
-        <dd>{{value}}</dd>
+    <div class="grid-x">
+      <dl class="large-offset-2 medium-offset-1 cell auto">
+        {{#each site.services}}
+          <dt>
+            {{title}}
+          </dt>
+          <dd> {{summary}}</dd>
+        {{/each}}
+      </dl>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Services</h2>
+      <div class="grid-x margin-x align-spaced">
+        {{#each site.services}}
+          <div class="cell small-6 medium-4 large-3">
+            <h3>{{title}}</h3>
+            <p>{{summary}}</p>
+            <ul>
+              {{#each items}}
+                <li>{{title}}
+                  {{#if more}}
+                    <ul>
+                      {{#each more}}
+                        <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+    <section>
+      <h2>About</h2>
+      <ul>
+        {{#each site.experience}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </section>
+    <section>
+      <h2>Projects</h2>
+      <div class="grid-x margin-x align-spaced">
+        {{#each site.projects}}
+          <div class="small-12 medium-6 large-4 cell">
+            <h3>{{title}}</h3>
+            <p>{{summary}}</p>
+            <span>
+              <a href= {{site}} target="_blank">{{title}}</a>
+            </span>
+            <h4>Technology</h4>
+            <ul>
+              {{#each technology}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+    <section>
+      <h2>Resources</h2>
+      <ul>
+        {{#each site.resources}}
+          <li>
+            <a href="{{site}}" target="_blank">{{title}}</a>
+          </li>
+      </ul>
       {{/each}}
-    </dl>
-  </section>
-  <section>
-    <h2>Send Message</h2>
-    <form>
-      <fieldset>
-        <label for="name">
-          Name
-          <input type="text">
-        </label>
-        <label for="email">
-          Email
-          <input type="email">
-        </label>
-        <label for="Message">
-          Message
-          <textarea name="message" id="" cols="30" rows="10"></textarea>
-        </label>
-        <button class="button" type="submit">Send</button>
-        <button class="button" type="reset">Reset</button>
-      </fieldset>
-    </form>
-  </section>
-</footer>
+    </section>
+  </main>
+  <footer>
+    <div class="grid-x margin-x small-up-1 large-up-2 align-justify">
+      <section class="auto cell">
+        <h2>Contact Us</h2>
+        <dl>
+          {{#each site.about}}
+            <dt>
+              {{title}}
+            </dt>
+            <dd>{{value}}</dd>
+          {{/each}}
+        </dl>
+      </section>
+      <section class="auto cell">
+        <h2>Send Message</h2>
+        <form>
+          <fieldset>
+            <div class="grid-x padding-x">
+              <div class="medium-12 cell">
+                <label for="name">
+                  Name
+                  <input type="text">
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <label for="email">
+                  Email
+                  <input type="email">
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <label for="Message">
+                  Message
+                  <textarea name="message" id="" cols="30" rows="10"></textarea>
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <button class="button" type="submit">Send</button>
+                <button class="button" type="reset">Reset</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+  </footer>
+</div>

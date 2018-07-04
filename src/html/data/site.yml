@@ -33,8 +33,8 @@ services:
     - Cloud based
     - 3rd party integration
  - 
-  title: Headless Wordpress Development
-  summary: headless wordpress development
+  title: Headless Wordpress
+  summary: headless wordpress
   items:
     - 
       title: Liberate your content
