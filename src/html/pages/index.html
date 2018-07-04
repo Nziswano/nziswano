@@ -16,9 +16,9 @@
             {{title}}
           </dt>
           <dd>{{summary}}</dd>
-          {{#each benefits}}
+          <!-- {{#each benefits}}
             <dd>{{title}}</dd>
-          {{/each}}
+          {{/each}} -->
         {{/each}}
       </dl>
     </div>
@@ -31,31 +31,33 @@
           <div class="cell small-6 medium-4 large-3">
             <h3>{{title}}</h3>
             <p>{{summary}}</p>
-            <ul>
-              {{#each items}}
-                <li>{{title}}
-                  {{#if more}}
-                    <ul>
-                      {{#each more}}
-                        <li>{{this}}</li>
-                      {{/each}}
-                    </ul>
-                  {{/if}}
-                </li>
-              {{/each}}
-            </ul>
             <h4>Benefits</h4>
             <ul>
               {{#each benefits}}
                 <li>{{title}}</li>
               {{/each}}
             </ul>
-            <h4>Technology</h4>
+            <h4>Use cases</h4>
+            <ul>
+              {{#each uses}}
+                <li>{{title}}
+                  <!-- {{#if more}}
+                    <ul>
+                      {{#each more}}
+                        <li>{{this}}</li>
+                      {{/each}}
+                    </ul>
+                  {{/if}} -->
+                </li>
+              {{/each}}
+            </ul>
+
+            <!-- <h4>Technology</h4>
             <ul>
               {{#each technology}}
                 <li>{{this}}</li>
               {{/each}}
-            </ul>
+            </ul> -->
           </div>
         {{/each}}
       </div>
@@ -88,7 +90,7 @@
         {{/each}}
       </div>
     </section>
-    <section>
+    <!-- <section>
       <h2>Resources</h2>
       <ul>
         {{#each site.resources}}
@@ -97,7 +99,7 @@
           </li>
       </ul>
       {{/each}}
-    </section>
+    </section> -->
   </main>
   <footer>
     <div class="grid-x margin-x small-up-1 large-up-2 align-justify">

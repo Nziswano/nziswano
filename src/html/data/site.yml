@@ -6,11 +6,18 @@ quote_author: Maya Angelou
 services:
  -
   title: Micro Sites
-  summary: What is a micro site?
+  summary: A website that functions as a supplement to a primary website. It has custom content and design that highlights a feature, project, campaign or product.
   benefits:
     -
-      title: benefit
-  items:  
+      title: Custom
+      content: Site design is not constrained by the primary site navigation or layout. Design is focused on the feature, product or feature that is being highlighted.
+    -
+      title: Focused
+      content: Focus the site visitor to the feature or product
+    -
+      title: Cost efficient
+      content: Site can reuse content and assets already available on the main site. Anything custom does not require changes on the primary site.  
+  uses:  
     - 
       title: Contests
     - 
@@ -32,56 +39,74 @@ services:
       - snipcart - ecommerce
       - Product dedicated sites
       - Integrate with third-party ecommerce providers
+    -
+      title: Testing your market
   technology:
     - Cloud based
     - 3rd party integration
  - 
-  title: Headless Wordpress
-  summary: headless wordpress
+  title: Headless WordPress
+  summary: Remove the content presentation responsibility from your WordPress site providing customized front-ends without having to change your WordPress templates. 
   benefits:
     -
-      title: benefit
-  items:
+      title: Flexibility
+      content: Redesign or enhance your front-end without having to touch your WordPress installation.
+    -
+      title: Speedup site
+      content: The front-end only gets data from the WordPress site rather than all the pre-rendered content. Display changes only happens on the front-end portion of the site.
+    -
+      title: Future proof
+      content: Implement new features or integrate with different 3rd party services without touching your WordPress backend. Easier to make your content available on current and future devices.
+  uses:
     - 
-      title: Liberate your content
+      title: Inexpensive site scaling
     - 
-      title: Scale your site
+      title: Multiple microsites with your current content
     - 
-      title: Multiple sites with shared content
+      title: Use WordPress.com as a backend
     - 
-      title: Leverage WordPress.com
-    - 
-      title: Maximize your front-end developers
+      title: Leverage new cloudbased services and technologies
+  resources:
+    -
+      title: HumanMade Rest API whitepaper
+      link: https://humanmade.com/wordpress-rest-api-white-paper/
   technology:
     - wordpress.com
     - cloud services
  - 
   title: Analytics
-  summary: site analytics
-  items:
-    - 
-      title: Custom tags
-    - 
-      title: Configuration and implementation
-    - 
-      title: Dashboards
-    - 
-      title: Training
-    - 
-      title: Custom integration with internal tools
+  summary: Provides data about your website, visitors and site performance. Can help you measure what's working and also spot any issues with your site. The information can be used to help with future web site and product development.
   benefits:
     -
-      title: benefit
+      title: Quantify
+      content: Measure the actual traffic to your site.
+    -
+      title: Monitor
+      content: Verify that your site and features on your site are available. 
+    -
+      title: Innovate
+      content: Tracking data can help explore new markets. Effectiveness of marketing campaigns can be measured. FAQ clicks can point to product issues. 
+  uses:
+    - 
+      title: Marketing campaign effectiveness
+    - 
+      title: Ecommerce value
+    - 
+      title: Dashboards for high-level reporting
+    - 
+      title: Custom integration with internal or different vendor tools
   technology:
     - Google Webmaster tools
     - Google Analytics
 experience: 
-  - Development and marketing experience
-  - Web development
+  - Over 10 years of web marketing and development experience
+  - Companies worked with includes CNBC, Experian, Rent The Runway
+  - Ecommerce and email marketing experience
+  - Custom web application development
 projects:
   -
     title: KinderCare
-    summary: KinderCare website
+    summary: Daycare and preschool administration web based application.
     site: https://www.kindercare.co.za
     technology:
       - Angular 6 web application
@@ -91,7 +116,7 @@ projects:
       - Flask based API
   -
     title: lookfindme
-    summary: lookfindme website
+    summary: Employer resource to find available workers in the service industries.
     site: https://www.lookfindme.com
     technology:
       - VueJs
@@ -100,8 +125,8 @@ projects:
       - Amazon Elastic Search
       - Amazon SES
   -
-    title: Johan Martin Personal Site
-    summary: Personal site
+    title: Johan Martin
+    summary: Personal with integrated WordPress blog
     site: https://www.johan-martin.com
     technology:
       - ReactJS
@@ -109,7 +134,7 @@ projects:
       - Amazon API Gateway
   -
     title: Paseo Baptist Church
-    summary: Paseo Baptist Church
+    summary: Church site with information and events.
     site: https://www.paseo.org.za
     technology:
       - Foundation 6
@@ -121,7 +146,7 @@ projects:
       - Google dynamoDB
   -
     title: Paseo Daycare and Preschool
-    summary: Paseo daycare and preschool
+    summary: Daycare website with information about services.
     site: https://center.paseo.org.za
     technology:
       - Foundation 6
