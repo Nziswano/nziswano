@@ -56,7 +56,10 @@ services:
       content: The front-end only gets data from the WordPress site rather than all the pre-rendered content. Display changes only happens on the front-end portion of the site.
     -
       title: Future proof
-      content: Implement new features or integrate with different 3rd party services without touching your WordPress backend. Easier to make your content available on current and future devices.
+      content: Implement new features or integrate with different 3rd party services without touching your WordPress backend. Easier to integrate with measurement and machine learning tools.
+    -
+      title: Content portablity
+      content: Make your content available on current and future devices. Partners can integrate your content into their sites.
   uses:
     - 
       title: Inexpensive site scaling
