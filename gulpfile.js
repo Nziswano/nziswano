@@ -42,11 +42,11 @@ function loadConfig() {
 
 // Build the index.html files for the final result
 gulp.task('build',
-  gulp.series(clean, gulp.parallel(pages, images), styleGuide));
+  gulp.series(clean, gulp.parallel(buildSass, fonts, pages, images), styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series(clean, gulp.parallel(mywebpack, pages, images), styleGuide, serve, watch)
+  gulp.series(clean, gulp.parallel(buildSass, fonts, mywebpack, pages, images), styleGuide, serve, watch)
 )
 
 
@@ -57,6 +57,7 @@ function mywebpack() {
     .pipe(gulp.dest('dist/assets/'));
 }
 
+// scss compile
 function buildSass() {
   return gulp.src(['src/assets/styles/styles.scss'])
     .pipe(sourcemaps.init())
@@ -66,6 +67,13 @@ function buildSass() {
     .pipe(postcss([autoprefixer()]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(PATHS.dist + '/assets'))
+}
+
+// copy fonts
+// Copy fonts to the "dist" folder
+function fonts() {
+  return gulp.src(PATHS.fonts + '/*.*')
+    .pipe(gulp.dest(PATHS.dist + '/assets/fonts'));
 }
 
 // browser-sync

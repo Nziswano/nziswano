@@ -12,6 +12,9 @@
 // $card-border: 1px solid $light-gray;
 // $card-shadow: none;
 $card-border-radius: 5px;
+//57. Font-awesome path
+$fa-font-path: '/assets/fonts';
+// $fa-font-path: 'node_modules/font-awesome/fonts';
 // $card-padding: $global-padding;
 // $card-margin-bottom: $global-margin;
 video {
@@ -40,18 +43,25 @@ h3 {
   background-color: $secondary-color;
   &-row {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
   }
   &-cell {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
   }
   .card-divider {
+    flex: 1 2 auto;
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
-    align-items: center;
+  }
+  .card-section {
+    // flex: 0 1 auto; // flex: 1 1 auto;
+    // align-self: center;
   }
 }

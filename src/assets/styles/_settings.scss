@@ -59,7 +59,7 @@
 //  54. Tooltip
 //  55. Top Bar
 //  56. Xy Grid
-@import '~foundation-sites/scss/util/util';
+@import 'util/util';
 // 1. Global
 // ---------
 $global-font-size: 100%;
@@ -652,6 +652,3 @@ $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
-//57. Font-awesome path
-$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
-// $fa-font-path: 'node_modules/font-awesome/fonts';

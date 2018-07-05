@@ -2,12 +2,12 @@
 // custom
 @import 'settings';
 @import 'local'; // custom local settings.
-@import '~foundation-sites/scss/foundation';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import "~@fortawesome/fontawesome-free/scss/fa-solid";
-@import "~@fortawesome/fontawesome-free/scss/fa-brands";
-@import "~@fortawesome/fontawesome-free/scss/fa-regular";
-@import '~motion-ui/src/motion-ui';
+@import 'foundation';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import "node_modules/@fortawesome/fontawesome-free/scss/fa-solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fa-brands";
+@import "node_modules/@fortawesome/fontawesome-free/scss/fa-regular";
+@import 'motion-ui';
 // foundation imports
 @include foundation-global-styles;
 // @include foundation-grid;

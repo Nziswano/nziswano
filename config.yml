@@ -2,6 +2,8 @@
 PATHS:
   # Path to dist folder
   dist: "dist"
+  fonts:
+    - "node_modules/@fortawesome/fontawesome-free/webfonts"
   sass:
     - "node_modules/foundation-sites/scss"
     - "node_modules/motion-ui/src"
