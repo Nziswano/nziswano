@@ -2,6 +2,7 @@
 <div class="grid-container">
   <header>
     <h1>{{site.title}}</h1>
+    <h3>{{site.definition}}</h3>
     <h2>{{site.subtitle}}</h2>
     <div class="grid-x">
       <blockquote class="cell auto large-offset-2 medium-offset-1">
@@ -9,7 +10,7 @@
         <cite>{{site.quote_author}}</cite>
       </blockquote>
     </div>
-    <h3>We Provide</h3>
+    <!-- <h3>What we do!</h3>
     <div class="grid-x">
       <dl class="large-offset-2 medium-offset-1 cell auto">
         {{#each site.services}}
@@ -17,48 +18,54 @@
             {{title}}
           </dt>
           <dd>{{summary}}</dd>
-          <!-- {{#each benefits}}
-            <dd>{{title}}</dd>
-          {{/each}} -->
         {{/each}}
       </dl>
-    </div>
+    </div> -->
   </header>
   <main>
     <section>
-      <h2>Services</h2>
+      <h2>What we do!</h2>
       <div class="grid-x margin-x align-spaced">
         {{#each site.services}}
           <div class="cell small-6 medium-4 large-3">
-            <h3>{{title}}</h3>
-            <p>{{summary}}</p>
-            <h4>Benefits</h4>
-            <ul>
-              {{#each benefits}}
-                <li>{{title}}</li>
-              {{/each}}
-            </ul>
-            <h4>Use cases</h4>
-            <ul>
-              {{#each uses}}
-                <li>{{title}}
-                  <!-- {{#if more}}
+            <div class="card">
+              <div class="class-divider">
+                <i class="{{icon.class}} {{icon.name}}"></i>
+                <h3>{{title}}</h3>
+                <p>{{summary}}</p>
+              </div>
+              <div class="card-section">
+                <h4>Benefits</h4>
+                <ul>
+                  {{#each benefits}}
+                    <li>{{title}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+              <div class="card-section">
+                <h4>Use cases</h4>
+                <ul>
+                  {{#each uses}}
+                    <li>{{title}}
+                      <!-- {{#if more}}
                     <ul>
                       {{#each more}}
                         <li>{{this}}</li>
                       {{/each}}
                     </ul>
                   {{/if}} -->
-                </li>
-              {{/each}}
-            </ul>
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
 
-            <!-- <h4>Technology</h4>
+              <!-- <h4>Technology</h4>
             <ul>
               {{#each technology}}
                 <li>{{this}}</li>
               {{/each}}
             </ul> -->
+            </div>
           </div>
         {{/each}}
       </div>

@@ -1,1 +1,1 @@
-// import "@/scss/app.scss";
+import "@/assets/styles/styles.scss";

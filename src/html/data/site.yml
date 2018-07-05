@@ -1,12 +1,17 @@
 ---
-title: Nziswano digital agency
-subtitle: cooperation
+title: Nziswano
+subtitle: a digital agency
+definition: cooperation
 quote: "You can’t use up creativity. The more you use, the more you have."
 quote_author: Maya Angelou
 services:
  -
-  title: Micro Sites
-  summary: A website that functions as a supplement to a primary website. It has custom content and design that highlights a feature, project, campaign or product.
+  title: Microsites
+  icon: {
+    class: fas,
+    name: fa-sitemap
+    }
+  summary: A focused website that functions as a supplement to a primary website. It has custom content and design that highlights a feature, project, campaign or product. Although on its own, it's there to complement the primary site.
   benefits:
     -
       title: Custom
@@ -46,7 +51,11 @@ services:
     - 3rd party integration
  - 
   title: Headless WordPress
-  summary: Remove the content presentation responsibility from your WordPress site providing customized front-ends without having to change your WordPress templates. 
+  icon: {
+      class: fab,
+      name: fa-wordpress-simple
+    }
+  summary: Easily create custom front-ends or new sites while leveraging your existing WordPress content. Scale your site with cost-effective cloud services. Integrate new 3rd party services without touching your WordPress backend.
   benefits:
     -
       title: Flexibility
@@ -78,7 +87,11 @@ services:
     - cloud services
  - 
   title: Analytics
-  summary: Provides data about your website, visitors and site performance. Can help you measure what's working and also spot any issues with your site. The information can be used to help with future web site and product development.
+  icon: {
+    class: fas,
+    name: fa-chart-line
+    }
+  summary: Get insight into your website, visitors and online campaigns. Measure site performance and monitor your site for problems. Leverage the information for future site and product development.
   benefits:
     -
       title: Quantify

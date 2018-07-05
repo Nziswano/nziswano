@@ -42,11 +42,11 @@ function loadConfig() {
 
 // Build the index.html files for the final result
 gulp.task('build',
-  gulp.series(clean, gulp.parallel(buildSass, pages, images), styleGuide));
+  gulp.series(clean, gulp.parallel(pages, images), styleGuide));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series(clean, gulp.parallel(buildSass, mywebpack, pages, images), styleGuide, serve, watch)
+  gulp.series(clean, gulp.parallel(mywebpack, pages, images), styleGuide, serve, watch)
 )
 
 
@@ -135,5 +135,6 @@ function watch() {
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
   gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
-  gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(buildSass, reload));
+  gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(mywebpack, reload));
+  // gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(buildSass, reload));
 }

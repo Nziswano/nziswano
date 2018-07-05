@@ -1,11 +1,8 @@
 @charset 'utf-8';
-
 @import 'settings';
-@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
-@import 'node_modules/font-awesome/scss/font-awesome';
-@import 'foundation';
-@import 'motion-ui';
-
+// @import 'node_modules/font-awesome/scss/font-awesome';
+@import '~foundation-sites/scss/foundation';
+@import '~motion-ui/src/motion-ui';
 @include foundation-global-styles;
 // @include foundation-grid;
 // @include foundation-flex-grid;
@@ -47,11 +44,12 @@
 @include foundation-visibility-classes;
 // @include foundation-float-classes;
 @include foundation-flex-classes;
-
-// @include foundation-prototype-classes;
-
+@include foundation-prototype-classes;
 @include motion-ui-transitions;
 @include motion-ui-animations;
-
 // custom
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "~@fortawesome/fontawesome-free/scss/fa-solid";
+@import "~@fortawesome/fontawesome-free/scss/fa-brands";
+@import "~@fortawesome/fontawesome-free/scss/fa-regular";
 @import 'local';

@@ -40,6 +40,7 @@
     "file-loader": "^1.1.11",
     "gh-pages": "^1.2.0",
     "gulp": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-postcss": "^7.0.1",
     "gulp-sass": "^4.0.1",
     "gulp-sass-lint": "^1.4.0",
