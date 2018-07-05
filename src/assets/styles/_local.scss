@@ -3,6 +3,17 @@
 //   margin: 0;
 //   background: #000;
 // }
+// custom card
+// 14. Card
+// --------
+// $card-background: $white;
+// $card-font-color: $body-font-color;
+// $card-divider-background: $light-gray;
+// $card-border: 1px solid $light-gray;
+// $card-shadow: none;
+$card-border-radius: 5px;
+// $card-padding: $global-padding;
+// $card-margin-bottom: $global-margin;
 video {
   position: fixed; // position: absolute;
   top: 50%;
@@ -18,30 +29,29 @@ video {
   transition: 1s opacity;
 }
 
-// .main-section {
-//   // position: absolute;
-//   left: 2rem;
-//   top: 2rem;
-//   font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
-//   font-weight: 100; // background: rgba(0, 0, 0, 0.3);
-//   color: white;
-//   padding: 2rem;
-//   width: 33%;
-//   margin: 2rem;
-//   float: right;
-//   font-size: 1.2rem;
-// }
-// footer {
-//   ul {
-//     top: 20%; // display: flex; // position: absolute;
-//     color: white; // left: 50%; // top: 20rem;
-//     font-size: 2rem; // bottom: 1rem;
-//     // background: rgba(0, 0, 0, 0.3);
-//   }
-// }
 h1,
 h2,
 h3 {
   text-align: center;
   text-transform: capitalize;
+}
+
+.services {
+  background-color: $secondary-color;
+  &-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+  .card-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

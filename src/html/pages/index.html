@@ -23,13 +23,13 @@
     </div> -->
   </header>
   <main>
-    <section>
+    <section class="services">
       <h2>What we do!</h2>
-      <div class="grid-x margin-x align-spaced">
+      <div class="grid-x margin-x services-row">
         {{#each site.services}}
-          <div class="cell small-6 medium-4 large-3">
+          <div class="cell small-6 medium-4 large-3 services-cell">
             <div class="card">
-              <div class="class-divider">
+              <div class="card-divider">
                 <i class="{{icon.class}} {{icon.name}}"></i>
                 <h3>{{title}}</h3>
                 <p>{{summary}}</p>
@@ -72,7 +72,7 @@
     </section>
     <section>
       <h2>About</h2>
-      <ul class="grid-x padding-x align-center">
+      <ul class="grid-x padding-x">
         {{#each site.experience}}
           <li class="cell small-12 large-6 large-offset-3">{{this}}</li>
         {{/each}}
@@ -80,7 +80,7 @@
     </section>
     <section>
       <h2>Projects</h2>
-      <div class="grid-x margin-x align-spaced">
+      <div class="grid-x margin-x">
         {{#each site.projects}}
           <div class="small-12 medium-6 large-4 cell">
             <h3>{{title}}</h3>
@@ -110,7 +110,7 @@
     </section> -->
   </main>
   <footer>
-    <div class="grid-x margin-x small-up-1 large-up-2 align-justify">
+    <div class="grid-x margin-x small-up-1 medium-up-1 large-up-2">
       <section class="auto cell">
         <h2>Contact Us</h2>
         <dl>
