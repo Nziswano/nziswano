@@ -1,0 +1,54 @@
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  text-transform: capitalize;
+  color: $secondary-color;
+}
+
+.front {
+  ul {
+    list-style: none;
+    li {
+      text-align: left;
+      span {
+        margin-right: 1em;
+      }
+    }
+  }
+  h2 {
+    font-size: 2em;
+    font-weight: 900;
+    padding: 0.25em 0 0.25em;
+  }
+  h3,
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.5em 0 0.25em;
+    border-bottom: 1px $white solid;
+  }
+  h3 {
+    font-size: 1.75em;
+  }
+  section {
+    margin-bottom: 4em;
+  }
+  .main-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 60vh;
+  }
+}
