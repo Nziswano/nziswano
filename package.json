@@ -69,6 +69,7 @@
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.5.0-rc.1",
     "jquery": "^3.3.1",
+    "material-icons": "^0.2.3",
     "motion-ui": "^2.0.3",
     "what-input": "^5.1.0"
   }

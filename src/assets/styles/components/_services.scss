@@ -1,0 +1,26 @@
+.services {
+  &-row {
+    // background-color: $light-gray;
+  }
+  &-cell {
+    text-align: center;
+    padding: 1rem;
+  }
+  &-section {
+    .title-icon {
+      font-size: 3em;
+      color: $black;
+      margin-bottom: 1rem;
+      color: $success-color;
+    }
+    p {
+      text-align: left;
+      padding: 1rem;
+    }
+  }
+  &-benefits,
+  &-use-cases {
+    display: flex;
+    flex-direction: column;
+  }
+}

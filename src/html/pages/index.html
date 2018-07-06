@@ -1,9 +1,11 @@
 {{>video}}
-<div class="grid-container">
+<div class="grid-container full front">
   <header class="main-header">
-    <h1>{{site.title}}</h1>
-    <h3>{{site.definition}}</h3>
-    <h2>{{site.subtitle}}</h2>
+    <div>
+      <h1>{{site.title}}</h1>
+      <h3>{{site.definition}}</h3>
+      <h2>{{site.subtitle}}</h2>
+    </div>
     <blockquote>
       {{site.quote}}
       <cite>{{site.quote_author}}</cite>
@@ -12,22 +14,22 @@
   <main>
     <section class="services">
       <h2>What we do!</h2>
-      <div class="grid-x margin-x services-row">
+      <div class="services-row">
         {{#each site.services}}
-          <div class="card cell small-6 medium-4 large-3 services-cell">
+          <div class="services-cell">
 
-            <div class="card-divider services-section">
-              <i class="{{icon.class}} {{icon.name}}"></i>
+            <div class="services-section">
+              <i class="title-icon {{icon.class}} {{icon.name}}"></i>
               <h3>{{title}}</h3>
               <p>{{summary}}</p>
             </div>
 
-            <div class="card-section services-section services-benefits">
-              <h4>Benefits</h4>
-              <ul class="fa-ul">
+            <div class="services-benefits">
+              <!-- <h4>Benefits</h4> -->
+              <ul>
                 {{#each benefits}}
                   <li>
-                    <span class="fa-li">
+                    <span>
                       <i class="fas fa-award"></i>
                     </span>
                     {{title}}</li>
@@ -35,12 +37,12 @@
               </ul>
             </div>
 
-            <div class="card-section services-section services-use-cases">
-              <h4>Use cases</h4>
-              <ul class="fa-ul">
+            <div class="services-use-cases">
+              <!-- <h4>Use cases</h4> -->
+              <ul>
                 {{#each uses}}
                   <li>
-                    <span class="fa-li">
+                    <span>
                       <i class="fas fa-check"></i>
                     </span>
                     {{title}}
@@ -54,7 +56,7 @@
 
       </div>
     </section>
-    <section class="about`">
+    <section class="about">
       <h2>About</h2>
       <ul>
         {{#each site.experience}}
@@ -66,37 +68,35 @@
     <section class="projects">
       <h2>Projects</h2>
 
-      <div class="grid-x margin-x projects-row">
+      <div class="projects-row">
         {{#each site.projects}}
 
-          <div class="card auto large-3 cell">
-            <div class="card-divider">
+          <div class="projects-cell">
+            <div>
+              <img src="https://placeimg.com/640/480/tech" width="100%" alt="{{title}}">
+            </div>
+            <div class="projects-section">
               <h3>{{title}}</h3>
               <p>{{summary}}</p>
-              <span>
-                <a href= {{site}} target="_blank">{{title}}</a>
-              </span>
-            </div>
-            <div class="card-section">
               <h4>Technology</h4>
-
               <ul>
                 {{#each technology}}
                   <li>{{this}}</li>
                 {{/each}}
               </ul>
+              <a class="button rounded" href="{{site}}" target="_blank">Site Link</a>
             </div>
           </div>
-
         {{/each}}
       </div>
     </section>
 
   </main>
   <footer>
-    <div class="grid-x margin-x small-up-1 medium-up-1 large-up-2">
-      <section class="auto cell">
-        <h2>Contact Us</h2>
+    <div>
+      <h2>Contact Us</h2>
+      <section>
+        <h3>Contact Info</h3>
         <dl>
           {{#each site.about}}
             <dt>
@@ -106,8 +106,8 @@
           {{/each}}
         </dl>
       </section>
-      <section class="auto cell">
-        <h2>Send Message</h2>
+      <section>
+        <h3>Message Us</h3>
         <form>
           <fieldset>
             <div class="grid-x padding-x">
@@ -138,5 +138,12 @@
         </form>
       </section>
     </div>
+    <ul>
+      <li>&copy; 2018</li>
+      <li>Nziswano Digital Agency</li>
+      <li>Site by
+        <a href="https://www.johan-martin.com" target="_blank">Johan Martin</a>
+      </li>
+    </ul>
   </footer>
 </div>
