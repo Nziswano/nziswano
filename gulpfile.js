@@ -143,6 +143,5 @@ function watch() {
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
   gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
-  gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(mywebpack, reload));
-  // gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(buildSass, reload));
+  gulp.watch('src/assets/styles/*.scss').on('all', gulp.series(buildSass, reload));
 }

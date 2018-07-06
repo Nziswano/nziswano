@@ -39,29 +39,76 @@ h3 {
   text-transform: capitalize;
 }
 
+.main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 60vh;
+}
+
 .services {
-  background-color: $secondary-color;
+  ul {
+    list-style: none;
+  }
+  h4 {
+    text-align: center;
+  }
   &-row {
     display: flex;
     justify-content: space-around;
+    align-content: space-around;
+    .services {
+      &-section {
+        flex: 1 1;
+      }
+      &-benefits {
+        align-content: center;
+      }
+    }
+    .card {
+      &-divider {
+        color: $dark-gray;
+        flex: 2 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-around;
+        i {
+          display: block;
+          font-size: 4rem;
+          flex: 1;
+        }
+        h3 {
+          flex: 0 1;
+        }
+        p {
+          flex: 1 0;
+          align-self: flex-end;
+        }
+      }
+      &-section {
+        align-content: center;
+      }
+    }
   }
-  &-cell {
-    display: flex;
-    flex-direction: column;
+}
+
+.projects {
+  &-row {
+    display: flex; // justify-content: space-around;
+    // align-content: space-around;
   }
   .card {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-  }
-  .card-divider {
-    flex: 1 2 auto;
-    justify-content: flex-start;
-    display: flex;
-    flex-direction: column;
-  }
-  .card-section {
-    // flex: 0 1 auto; // flex: 1 1 auto;
-    // align-self: center;
+    &-divider {
+      display: flex;
+      flex-direction: column;
+      flex: 2 0;
+    }
+    &-section {
+      flex: 1 1;
+    }
   }
 }

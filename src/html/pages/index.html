@@ -1,75 +1,52 @@
 {{>video}}
 <div class="grid-container">
-  <header>
+  <header class="main-header">
     <h1>{{site.title}}</h1>
     <h3>{{site.definition}}</h3>
     <h2>{{site.subtitle}}</h2>
-    <div class="grid-x">
-      <blockquote class="cell auto large-offset-2 medium-offset-1">
-        {{site.quote}}
-        <cite>{{site.quote_author}}</cite>
-      </blockquote>
-    </div>
-    <!-- <h3>What we do!</h3>
-    <div class="grid-x">
-      <dl class="large-offset-2 medium-offset-1 cell auto">
-        {{#each site.services}}
-          <dt>
-            {{title}}
-          </dt>
-          <dd>{{summary}}</dd>
-        {{/each}}
-      </dl>
-    </div> -->
+    <blockquote>
+      {{site.quote}}
+      <cite>{{site.quote_author}}</cite>
+    </blockquote>
   </header>
   <main>
     <section class="services">
       <h2>What we do!</h2>
       <div class="grid-x margin-x services-row">
         {{#each site.services}}
-          <div class="cell small-6 medium-4 large-3 services-cell">
+          <div class="card cell small-6 medium-4 large-3 services-cell">
 
-            <div class="card">
+            <div class="card-divider services-section">
+              <i class="{{icon.class}} {{icon.name}}"></i>
+              <h3>{{title}}</h3>
+              <p>{{summary}}</p>
+            </div>
 
-              <div class="card-divider">
-                <i class="{{icon.class}} {{icon.name}}"></i>
-                <h3>{{title}}</h3>
-                <p>{{summary}}</p>
-              </div>
+            <div class="card-section services-section services-benefits">
+              <h4>Benefits</h4>
+              <ul class="fa-ul">
+                {{#each benefits}}
+                  <li>
+                    <span class="fa-li">
+                      <i class="fas fa-award"></i>
+                    </span>
+                    {{title}}</li>
+                {{/each}}
+              </ul>
+            </div>
 
-              <div class="card-section">
-                <h4>Benefits</h4>
-                <ul>
-                  {{#each benefits}}
-                    <li>{{title}}</li>
-                  {{/each}}
-                </ul>
-              </div>
-
-              <div class="card-section">
-                <h4>Use cases</h4>
-                <ul>
-                  {{#each uses}}
-                    <li>{{title}}
-                      <!-- {{#if more}}
-                    <ul>
-                      {{#each more}}
-                        <li>{{this}}</li>
-                      {{/each}}
-                    </ul>
-                  {{/if}} -->
-                    </li>
-                  {{/each}}
-                </ul>
-              </div>
-
-              <!-- <h4>Technology</h4>
-            <ul>
-              {{#each technology}}
-                <li>{{this}}</li>
-              {{/each}}
-            </ul> -->
-
+            <div class="card-section services-section services-use-cases">
+              <h4>Use cases</h4>
+              <ul class="fa-ul">
+                {{#each uses}}
+                  <li>
+                    <span class="fa-li">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    {{title}}
+                  </li>
+                {{/each}}
+              </ul>
             </div>
 
           </div>
@@ -77,44 +54,44 @@
 
       </div>
     </section>
-    <section>
+    <section class="about`">
       <h2>About</h2>
-      <ul class="grid-x padding-x">
+      <ul>
         {{#each site.experience}}
-          <li class="cell small-12 large-6 large-offset-3">{{this}}</li>
+          <li>{{this}}</li>
         {{/each}}
       </ul>
     </section>
-    <section>
+
+    <section class="projects">
       <h2>Projects</h2>
-      <div class="grid-x margin-x">
+
+      <div class="grid-x margin-x projects-row">
         {{#each site.projects}}
-          <div class="small-12 medium-6 large-4 cell">
-            <h3>{{title}}</h3>
-            <p>{{summary}}</p>
-            <span>
-              <a href= {{site}} target="_blank">{{title}}</a>
-            </span>
-            <h4>Technology</h4>
-            <ul>
-              {{#each technology}}
-                <li>{{this}}</li>
-              {{/each}}
-            </ul>
+
+          <div class="card auto large-3 cell">
+            <div class="card-divider">
+              <h3>{{title}}</h3>
+              <p>{{summary}}</p>
+              <span>
+                <a href= {{site}} target="_blank">{{title}}</a>
+              </span>
+            </div>
+            <div class="card-section">
+              <h4>Technology</h4>
+
+              <ul>
+                {{#each technology}}
+                  <li>{{this}}</li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
+
         {{/each}}
       </div>
     </section>
-    <!-- <section>
-      <h2>Resources</h2>
-      <ul>
-        {{#each site.resources}}
-          <li>
-            <a href="{{site}}" target="_blank">{{title}}</a>
-          </li>
-      </ul>
-      {{/each}}
-    </section> -->
+
   </main>
   <footer>
     <div class="grid-x margin-x small-up-1 medium-up-1 large-up-2">
