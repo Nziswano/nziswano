@@ -23,7 +23,7 @@
 // @include foundation-breadcrumbs;
 @include foundation-button-group;
 // @include foundation-callout;
-// @include foundation-card;
+@include foundation-card;
 // @include foundation-close-button;
 // @include foundation-menu;
 // @include foundation-menu-icon;
@@ -31,8 +31,8 @@
 // @include foundation-dropdown;
 // @include foundation-dropdown-menu;
 // @include foundation-responsive-embed;
-// @include foundation-label;
-// @include foundation-media-object;
+@include foundation-label;
+@include foundation-media-object;
 // @include foundation-off-canvas;
 // @include foundation-orbit;
 // @include foundation-pagination;
@@ -43,7 +43,7 @@
 // @include foundation-switch;
 // @include foundation-table;
 // @include foundation-tabs;
-// @include foundation-thumbnail;
+@include foundation-thumbnail;
 // @include foundation-title-bar;
 // @include foundation-tooltip;
 // @include foundation-top-bar;

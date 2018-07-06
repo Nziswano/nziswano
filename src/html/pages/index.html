@@ -1,11 +1,9 @@
 {{>video}}
 <div class="grid-container full front">
   <header class="main-header">
-    <div>
-      <h1>{{site.title}}</h1>
-      <h3>{{site.definition}}</h3>
-      <h2>{{site.subtitle}}</h2>
-    </div>
+    <h1>{{site.title}}</h1>
+    <h3>{{site.definition}}</h3>
+    <h2>{{site.subtitle}}</h2>
     <blockquote>
       {{site.quote}}
       <cite>{{site.quote_author}}</cite>
@@ -71,11 +69,11 @@
       <div class="projects-row">
         {{#each site.projects}}
 
-          <div class="projects-cell">
-            <div>
-              <img src="https://placeimg.com/640/480/tech" width="100%" alt="{{title}}">
+          <div class="card projects-cell">
+            <div class="card-divider thumbnail">
+              <img class="thumbnail" src="https://placeimg.com/640/480/tech" alt="{{title}}">
             </div>
-            <div class="projects-section">
+            <div class="card-section projects-section">
               <h3>{{title}}</h3>
               <p>{{summary}}</p>
               <h4>Technology</h4>
@@ -89,61 +87,62 @@
           </div>
         {{/each}}
       </div>
-    </section>
+</div>
+</section>
 
-  </main>
-  <footer>
-    <div>
-      <h2>Contact Us</h2>
-      <section>
-        <h3>Contact Info</h3>
-        <dl>
-          {{#each site.about}}
-            <dt>
-              {{title}}
-            </dt>
-            <dd>{{value}}</dd>
-          {{/each}}
-        </dl>
-      </section>
-      <section>
-        <h3>Message Us</h3>
-        <form>
-          <fieldset>
-            <div class="grid-x padding-x">
-              <div class="medium-12 cell">
-                <label for="name">
-                  Name
-                  <input type="text">
-                </label>
-              </div>
-              <div class="medium-12 cell">
-                <label for="email">
-                  Email
-                  <input type="email">
-                </label>
-              </div>
-              <div class="medium-12 cell">
-                <label for="Message">
-                  Message
-                  <textarea name="message" id="" cols="30" rows="10"></textarea>
-                </label>
-              </div>
-              <div class="medium-12 cell">
-                <button class="button" type="submit">Send</button>
-                <button class="button" type="reset">Reset</button>
-              </div>
+</main>
+<footer>
+  <div>
+    <h2>Contact Us</h2>
+    <section>
+      <h3>Contact Info</h3>
+      <dl>
+        {{#each site.about}}
+          <dt>
+            {{title}}
+          </dt>
+          <dd>{{value}}</dd>
+        {{/each}}
+      </dl>
+    </section>
+    <section>
+      <h3>Message Us</h3>
+      <form>
+        <fieldset>
+          <div class="grid-x padding-x">
+            <div class="medium-12 cell">
+              <label for="name">
+                Name
+                <input type="text">
+              </label>
             </div>
-          </fieldset>
-        </form>
-      </section>
-    </div>
-    <ul>
-      <li>&copy; 2018</li>
-      <li>Nziswano Digital Agency</li>
-      <li>Site by
-        <a href="https://www.johan-martin.com" target="_blank">Johan Martin</a>
-      </li>
-    </ul>
-  </footer>
+            <div class="medium-12 cell">
+              <label for="email">
+                Email
+                <input type="email">
+              </label>
+            </div>
+            <div class="medium-12 cell">
+              <label for="Message">
+                Message
+                <textarea name="message" id="" cols="30" rows="10"></textarea>
+              </label>
+            </div>
+            <div class="medium-12 cell">
+              <button class="button" type="submit">Send</button>
+              <button class="button" type="reset">Reset</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </div>
+  <ul>
+    <li>&copy; 2018</li>
+    <li>Nziswano Digital Agency</li>
+    <li>Site by
+      <a href="https://www.johan-martin.com" target="_blank">Johan Martin</a>
+    </li>
+  </ul>
+</footer>
 </div>
