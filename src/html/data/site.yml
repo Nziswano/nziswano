@@ -130,6 +130,7 @@ projects:
       - Amazon API Gateway
       - Postgresql database
       - Flask based API
+    image: kindercare.png
   -
     title: lookfindme
     summary: Employer resource to find available workers in the service industries.
@@ -140,6 +141,7 @@ projects:
       - Amazon Postgresql RDS
       - Amazon Elastic Search
       - Amazon SES
+    image: lookfindme.png
   -
     title: Paseo Baptist Church
     summary: Church site with information and events.
@@ -152,6 +154,7 @@ projects:
       - Google API Gateway
       - Google SES
       - Google dynamoDB
+    image: paseo_baptist_church.png
   -
     title: Paseo Daycare and Preschool
     summary: Daycare website with information about services.
@@ -163,6 +166,7 @@ projects:
       - Headless WordPress
       - Google API Gateway
       - Google SES
+    image: paseo_daycare_preschool.png
   -
     title: Johan Martin
     summary: Website integrated with a WordPress blog.
@@ -171,6 +175,7 @@ projects:
       - ReactJS
       - Wordpress
       - Amazon API Gateway
+    image: johan_martin.png
 resources:
   - 
     title: Structured Data

@@ -1,4 +1,10 @@
 footer {
+  dl {
+    dt,
+    dd {
+      font-weight: 700;
+    }
+  }
   form {
     label {
       color: $secondary-color;

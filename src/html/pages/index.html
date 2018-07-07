@@ -61,7 +61,10 @@
       <div class="experience">
         <ul>
           {{#each site.experience}}
-            <li>{{this}}</li>
+            <li>
+              <span>
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </span> {{this}}</li>
           {{/each}}
         </ul>
       </div>
@@ -72,7 +75,7 @@
       <div class="projects-row grid-x grid-margin-x align-spaced">
         {{#each site.projects}}
           <div class="cell large-3 projects-item radius bordered shadow card">
-            <img class="thumbnail" src="https://placeimg.com/640/480/tech" alt="{{title}}" />
+            <img class="thumbnail" src="/assets/images/{{image}}" alt="{{title}}" />
 
             <h3>{{title}}</h3>
             <p>{{summary}}</p>

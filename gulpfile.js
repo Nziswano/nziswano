@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const panini = require('panini');
 const sherpa = require('style-sherpa');
 const rimraf = require('rimraf');
+const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const gulpwebpack = require('webpack-stream');
 const webpack = require('webpack');
@@ -26,6 +27,15 @@ const yaml = require('js-yaml');
 const fs = require('fs');
 
 
+/*
+const imagemin = require('gulp-imagemin');
+
+gulp.task('default', () =>
+	gulp.src('src/images/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest('dist/images'))
+);
+*/
 
 // Load settings from settings.yml
 const {
@@ -72,7 +82,7 @@ function buildSass() {
 // copy fonts
 // Copy fonts to the "dist" folder
 function fonts() {
-  return gulp.src(PATHS.fonts + '/*.*')
+  return gulp.src([PATHS.fonts + '/*.*', 'src/assets/styles/fonts/**/*.ttf'])
     .pipe(gulp.dest(PATHS.dist + '/assets/fonts'));
 }
 
@@ -98,8 +108,9 @@ function reload(done) {
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
-  return gulp.src('src/app/img/**/*')
-    .pipe(gulp.dest(PATHS.dist + '/img'))
+  return gulp.src('src/assets/images/**/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest(PATHS.dist + '/assets/images'))
 }
 
 // Generate a style guide from the Markdown content and HTML template in styleguide/
@@ -141,7 +152,7 @@ function watch() {
   gulp.watch('src/html/{layouts,partials,pages,helpers}/**/*.html').on('all', gulp.series(resetPages, pages, reload));
   gulp.watch('src/html/data/*.yml').on('all', gulp.series(resetPages, pages, reload));
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
-  gulp.watch('src/app/img/**/*').on('all', gulp.series(images, reload));
+  gulp.watch('src/assets/images/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
   gulp.watch('src/assets/styles/**/*.scss').on('all', gulp.series(buildSass, reload));
 }
