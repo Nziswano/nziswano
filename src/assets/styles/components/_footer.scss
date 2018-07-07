@@ -1,0 +1,16 @@
+footer {
+  form {
+    label {
+      color: $secondary-color;
+      font-weight: bolder;
+      font-size: 1.25rem;
+    }
+  }
+  .copyright {
+    display: flex;
+    justify-content: center;
+    li {
+      padding: 0 1rem;
+    }
+  }
+}

@@ -115,15 +115,15 @@ services:
     - Google Webmaster tools
     - Google Analytics
 experience: 
-  - Over 10 years of web marketing and development experience
-  - Companies worked with includes CNBC, Experian, Rent The Runway
+  - Over 10 years experience
+  - Worked with CNBC, Experian, Rent The Runway
   - Ecommerce and email marketing experience
   - Custom web application development
 projects:
   -
     title: KinderCare
     summary: Daycare and preschool administration web based application.
-    site: https://www.kindercare.co.za
+    site: https://center.paseo.org.za
     technology:
       - Angular 6 web application
       - Amazon Cognito for Identity Management
@@ -140,14 +140,6 @@ projects:
       - Amazon Postgresql RDS
       - Amazon Elastic Search
       - Amazon SES
-  -
-    title: Johan Martin
-    summary: Personal with integrated WordPress blog
-    site: https://www.johan-martin.com
-    technology:
-      - ReactJS
-      - Wordpress
-      - Amazon API Gateway
   -
     title: Paseo Baptist Church
     summary: Church site with information and events.
@@ -171,6 +163,14 @@ projects:
       - Headless WordPress
       - Google API Gateway
       - Google SES
+  -
+    title: Johan Martin
+    summary: Website integrated with a WordPress blog.
+    site: https://www.johan-martin.com
+    technology:
+      - ReactJS
+      - Wordpress
+      - Amazon API Gateway
 resources:
   - 
     title: Structured Data

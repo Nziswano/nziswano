@@ -1,21 +1,26 @@
 .services {
+  h3 {
+    border-bottom: 2px solid $secondary-color;
+  }
   &-row {
-    // background-color: $light-gray;
+    display: flex;
+    justify-content: space-around;
   }
   &-cell {
     text-align: center;
-    padding: 1rem;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
   }
   &-section {
     .title-icon {
-      font-size: 3em; // color: $black;
-      margin-bottom: 1rem; // color: $success-color;
+      font-size: 3em;
     }
     p {
       text-align: left;
-      padding: 1rem;
     }
   }
+  &-section,
   &-benefits,
   &-use-cases {
     display: flex;

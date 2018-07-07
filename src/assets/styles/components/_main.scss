@@ -18,42 +18,64 @@ h4 {
   color: $secondary-color;
 }
 
-.front {
-  ul {
-    list-style: none;
-    li {
-      text-align: left;
-      span {
-        margin-right: 1em;
-      }
+h1 {
+  font-size: 4.5em;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.25em;
+}
+
+ul {
+  list-style: none;
+  li {
+    text-align: left;
+    span {
+      margin-right: 1em;
     }
-  } // section {
-  //   margin-bottom: 4em;
-  // }
-  .main-header {
+  }
+}
+
+section>h2,
+.main-header {
+  background-color: rgba($primary-color, 0.3);
+  border: 3px solid $secondary-color;
+  border-top: 2px solid $secondary-color;
+  border-bottom: 2px solid $secondary-color;
+  border-radius: 0 2em;
+  padding: 0.25em 0;
+  margin: 0.1em;
+}
+
+section>h2 {
+  margin: 0.25em 2rem;
+}
+
+.front {
+  header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     height: 70vh;
-    h1 {
-      margin: 0;
-      padding: 0;
-      font-size: 3em;
-      color: $secondary-color;
-    }
-    h2 {
-      font-size: 1.75em;
-    }
+  }
+  .main-header {
     h3 {
       font-style: italic;
+      font-size: 1.25em;
     }
     blockquote {
-      align-content: center;
       display: block;
       font-style: italic;
+      text-align: center;
       cite {
-        align-self: flex-end;
+        text-align: center;
         display: block;
         font-weight: bolder;
       }

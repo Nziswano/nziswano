@@ -1,20 +1,22 @@
 {{>video}}
-<div class="grid-container full front">
-  <header class="main-header">
-    <h1>{{site.title}}</h1>
-    <h3>{{site.definition}}</h3>
-    <h2>{{site.subtitle}}</h2>
-    <blockquote>
-      {{site.quote}}
-      <cite>{{site.quote_author}}</cite>
-    </blockquote>
+<div class="grid-container front">
+  <header>
+    <div class="main-header">
+      <h1>{{site.title}}</h1>
+      <h3>{{site.definition}}</h3>
+      <h2>{{site.subtitle}}</h2>
+      <blockquote>
+        {{site.quote}}
+        <cite>{{site.quote_author}}</cite>
+      </blockquote>
   </header>
+  </div>
   <main>
     <section class="services">
       <h2>What we do!</h2>
-      <div class="services-row">
+      <div class="services-row grid-x">
         {{#each site.services}}
-          <div class="services-cell">
+          <div class="services-cell cell large-4">
 
             <div class="services-section">
               <i class="title-icon {{icon.class}} {{icon.name}}"></i>
@@ -56,93 +58,95 @@
     </section>
     <section class="about">
       <h2>About</h2>
-      <ul>
-        {{#each site.experience}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
+      <div class="experience">
+        <ul>
+          {{#each site.experience}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </section>
 
     <section class="projects">
       <h2>Projects</h2>
-
-      <div class="projects-row">
+      <div class="projects-row grid-x grid-margin-x align-spaced">
         {{#each site.projects}}
+          <div class="cell large-3 projects-item radius bordered shadow card">
+            <img class="thumbnail" src="https://placeimg.com/640/480/tech" alt="{{title}}" />
 
-          <div class="card projects-cell">
-            <div class="card-divider thumbnail">
-              <img class="thumbnail" src="https://placeimg.com/640/480/tech" alt="{{title}}">
+            <h3>{{title}}</h3>
+            <p>{{summary}}</p>
+            <h4>Technology</h4>
+
+
+            <ul>
+              {{#each technology}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+
+            <div class="target_button">
+              <a class="button radius bordered shadow" href="{{site}}" target="_blank">Web Site</a>
             </div>
-            <div class="card-section projects-section">
-              <h3>{{title}}</h3>
-              <p>{{summary}}</p>
-              <h4>Technology</h4>
-              <ul>
-                {{#each technology}}
-                  <li>{{this}}</li>
-                {{/each}}
-              </ul>
-              <a class="button rounded" href="{{site}}" target="_blank">Site Link</a>
-            </div>
+
           </div>
         {{/each}}
       </div>
-</div>
-</section>
+    </section>
 
-</main>
-<footer>
-  <div>
+  </main>
+  <footer class="grid-container">
     <h2>Contact Us</h2>
-    <section>
-      <h3>Contact Info</h3>
-      <dl>
-        {{#each site.about}}
-          <dt>
-            {{title}}
-          </dt>
-          <dd>{{value}}</dd>
-        {{/each}}
-      </dl>
-    </section>
-    <section>
-      <h3>Message Us</h3>
-      <form>
-        <fieldset>
-          <div class="grid-x padding-x">
-            <div class="medium-12 cell">
-              <label for="name">
-                Name
-                <input type="text">
-              </label>
+    <div class="grid-x grid-martin-x">
+      <section class="cell medium-6">
+        <h3>Contact Info</h3>
+        <dl>
+          {{#each site.about}}
+            <dt>
+              {{title}}
+            </dt>
+            <dd>{{value}}</dd>
+          {{/each}}
+        </dl>
+      </section>
+      <section class="cell medium-6">
+        <h3>Message Us</h3>
+        <form>
+          <fieldset>
+            <div class="grid-x">
+              <div class="medium-12 cell">
+                <label for="name">
+                  Name
+                  <input type="text">
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <label for="email">
+                  Email
+                  <input type="email">
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <label for="Message">
+                  Message
+                  <textarea name="message" id="" cols="30" rows="10"></textarea>
+                </label>
+              </div>
+              <div class="medium-12 cell">
+                <button class="button radius bordered shadow" type="submit">Send</button>
+                <button class="button radius bordered shadow primary" type="reset">Reset</button>
+              </div>
             </div>
-            <div class="medium-12 cell">
-              <label for="email">
-                Email
-                <input type="email">
-              </label>
-            </div>
-            <div class="medium-12 cell">
-              <label for="Message">
-                Message
-                <textarea name="message" id="" cols="30" rows="10"></textarea>
-              </label>
-            </div>
-            <div class="medium-12 cell">
-              <button class="button" type="submit">Send</button>
-              <button class="button" type="reset">Reset</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </section>
-  </div>
-  <ul>
-    <li>&copy; 2018</li>
-    <li>Nziswano Digital Agency</li>
-    <li>Site by
-      <a href="https://www.johan-martin.com" target="_blank">Johan Martin</a>
-    </li>
-  </ul>
-</footer>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+    <ul class="copyright">
+      <li>&copy; 2018</li>
+      <li>Nziswano Digital Agency</li>
+      <li>Site by
+        <a href="https://www.johan-martin.com" target="_blank">Johan Martin</a>
+      </li>
+    </ul>
+  </footer>
 </div>
