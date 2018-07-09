@@ -26,17 +26,6 @@ const webpackCompiler = webpack(webpackConfig);
 const yaml = require('js-yaml');
 const fs = require('fs');
 
-
-/*
-const imagemin = require('gulp-imagemin');
-
-gulp.task('default', () =>
-	gulp.src('src/images/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images'))
-);
-*/
-
 // Load settings from settings.yml
 const {
   PATHS
@@ -62,7 +51,7 @@ gulp.task('default',
 
 // add webpack stream
 function mywebpack() {
-  return gulp.src('src/main.js')
+  return gulp.src('src/main.ts')
     .pipe(gulpwebpack(webpackConfig, webpack))
     .pipe(gulp.dest('dist/assets/'));
 }
@@ -154,5 +143,6 @@ function watch() {
   gulp.watch('src/styleguide/*.*').on('all', gulp.series(styleGuide, reload));
   gulp.watch('src/assets/images/**/*').on('all', gulp.series(images, reload));
   gulp.watch('src/**/*.js').on('all', gulp.series(mywebpack, reload));
+  gulp.watch('src/**/*.ts').on('all', gulp.series(mywebpack, reload));
   gulp.watch('src/assets/styles/**/*.scss').on('all', gulp.series(buildSass, reload));
 }

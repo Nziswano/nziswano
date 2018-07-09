@@ -2,8 +2,10 @@
 title: Nziswano
 subtitle: a digital agency
 definition: co-op·er·a·tion
-quote: "You can’t use up creativity. The more you use, the more you have."
-quote_author: Maya Angelou
+# quote: "You can’t use up creativity. The more you use, the more you have."
+# quote_author: Maya Angelou
+quote: "Having knowledge but lacking the power to express it clearly is no better than never having any ideas at all."
+quote_author: Pericles
 services:
  -
   title: Microsites

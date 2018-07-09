@@ -9,6 +9,11 @@ const NoVendorPackagesInclude = ['font-awesome', 'foundation-sites', '@fortaweso
 const outputDir = path.join(__dirname, 'dist')
 
 const pluginConfig = [
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+  }),
   new MiniCssExtractPlugin({
     filename: '[name].css',
     chunkFilename: '[id].css'
@@ -56,7 +61,7 @@ const serverConfig = {
 
 const webpackConfig = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: outputDir,
