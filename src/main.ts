@@ -3,12 +3,15 @@ import whatInput from "what-input";
 
 import { Foundation } from "foundation-sites/js/foundation.core";
 
-$(document).ready((() => {
+const siteElement = "site_captcha_key";
+const captchaKey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
-  const submitButton = $(".submit-button");
+import createCaptcha from "./ts/captcha";
+
+$(document).ready((() => {
   
   $(".contact-us-form input, .contact-us-form textarea").blur(
-    () => validateField(event, submitButton),
+    () => validateField(event),
   );
 
   $(".contact-us-form").submit(
@@ -18,19 +21,20 @@ $(document).ready((() => {
   },
 );
 
+  createCaptcha(siteElement, captchaKey, validCaptcha);
+
 }
 ),
 );
 
-const onloadCallback = () => {
-  //   grecaptcha.render(
-  //     "site_captcha_key", {
-  //     callback : verifyCallBack,
-  //     sitekey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
-  //   }
-  // );
-  };
+const submitButton = $(".submit-button");
 
+let isValidCaptcha = false;
+
+const validCaptcha = () => {
+  isValidCaptcha = true;
+  submitButton.removeAttr("disabled");
+};
 
 const fields = [
   {
@@ -54,7 +58,7 @@ const reducer = (isValid, currentField) => {
     return isValid;
   };
 
-const validateField = (event, submitButton) => {
+const validateField = (event) => {
   const targetClass = event.target.name;
 
   // console.log(fields);
@@ -77,9 +81,9 @@ const validateField = (event, submitButton) => {
 
   let formResult = true;
   formResult = fields.reduce(reducer, true);
-  if (formResult) {
-    submitButton.removeAttr("disabled");
-  }
+  // if (formResult && isValidCaptcha) {
+  //   submitButton.removeAttr("disabled");
+  // }
 };
 
 const verifyCallBack = (response) => {

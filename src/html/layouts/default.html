@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{page}} | Nziswano Digital Agency</title>
     <link rel="stylesheet" href="{{root}}assets/styles.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer>
   </head>
 
-  <body>
-    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
-    {{>body}}
+        <body>
+          {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    {{> body}}
       <script src="{{root}}assets/vendor.js"></script>
-      <script src="{{root}}assets/app.js"></script>
-      <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer>
-      </script>
-  </body>
+    <script src="{{root}}assets/app.js"></script>
+
+    </script>
+    </body>
 
 </html>
