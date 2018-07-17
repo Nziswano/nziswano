@@ -1,8 +1,6 @@
-const getCaptcha  = new Promise( (resolve) => {
-  if ( typeof Window !== "undefined" ) {
-    resolve((window as any).grecaptcha);
-  }
-});
+(window as any).captchaCallback; //Global callback to call
+
+const getCaptcha  = new Promise( (resolve) => (window as any).captchaCallback = resolve);
 
 /**
  * 
@@ -12,8 +10,8 @@ const getCaptcha  = new Promise( (resolve) => {
  */
 const createCaptcha = (siteElement, key, validCaptcha) => {
   getCaptcha.then(
-    (captcha: any) => {
-      captcha.render(siteElement, {
+    () => {
+      (window as any).grecaptcha.render(siteElement, {
         callback: validCaptcha,
         sitekey: key,
     });

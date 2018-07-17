@@ -115,59 +115,7 @@
       <section class="cell medium-6">
         <h3>Message Us</h3>
         <div class="contact-us-form-section">
-          <form class="contact-us-form">
-
-            <!-- 
-            <div data-abide-error class="alert callout" aria-live="assertive" role="alert" style="display: none;">
-              <p>
-                <i class="fi-alert"></i> There are some errors in your form.
-              </p>
-            </div> -->
-
-            <fieldset>
-              <div class="grid-x">
-
-                <div class="medium-12 cell">
-                  <label for="name">
-                    Name
-                    <input name="name" placeholder="Name" type="text" aria-errormessage="name-error"
-                      required aria-describedby="name-help">
-                    <span class="form-error" id="name-error">
-                      Name is required.
-                    </span>
-                  </label>
-                  <p class="help-text" id="name-help">Let us know who you are.</p>
-                </div>
-
-                <div class="medium-12 cell">
-                  <label for="email">
-                    Email
-                    <input name="email" type="email" aria-describedby="email-help" aria-errormessage="email-error"
-                      placeholder="Email" required>
-                    <span class="form-error" id="email-error">
-                      Email is required.
-                    </span>
-                  </label>
-                  <p class="help-text" id="email-help">How to contact you.</p>
-                </div>
-
-                <div class="medium-12 cell message">
-                  <label for="Message">
-                    Message
-                    <textarea name="message" cols="20" rows="5" aria-describedby="name-message"></textarea>
-                  </label>
-                  <p class="help-text" id="message-help">Send us a note.</p>
-                </div>
-                <div class="medium-12 cell">
-                  <div id="site_captcha_key"></div>
-                </div>
-                <div class="medium-12 cell">
-                  <button class="button radius bordered shadow submit-button" type="submit" disabled>Send</button>
-                </div>
-
-              </div>
-            </fieldset>
-          </form>
+          {{>contactUs}}
         </div>
       </section>
     </div>
