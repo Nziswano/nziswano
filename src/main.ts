@@ -11,8 +11,6 @@ const apiKey = "xeSQf3MI96bwatnZ2Vdy52pu6nBpUaW7GEtY69ni";
 $(document).ready((() => {
   const inputs = $(".contact-us-form input, .contact-us-form textarea");
 
-  createCaptcha(siteElement, captchaKey, validCaptcha);
-
   inputs.blur(
     () => validateField(event),
   );
@@ -24,6 +22,11 @@ $(document).ready((() => {
 }
 ),
 );
+
+(window as any).captchaCallback = () => Promise.resolve("success").then(
+  () => createCaptcha(siteElement, captchaKey, validCaptcha),
+);
+
 
 // validate fiels
 
@@ -97,9 +100,10 @@ const submitForm = (event) => {
   const formData = $(".contact-us-form").serializeArray();
   event.preventDefault();
 
-  formData.forEach(element => {
-    formSubmit[element["name"]] = element["value"]
-  });
+  formData.forEach(
+    (element) => formSubmit[element["name"]] = element["value"]
+  );
+
   formSubmit["destination"] = formDestination;
   formSubmit["captcha"] = captchaResponse;
 
